@@ -1,3 +1,5 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable react/jsx-no-comment-textnodes */
 import { useSelector, useDispatch } from "react-redux";
 import { findContact } from "../../redux/actions";
 import FindContact from "../FindContact/FindContact";
@@ -19,6 +21,8 @@ export default function Contacts() {
       />
 
       <ul>
+        // eslint-disable-next-line array-callback-return //
+        eslint-disable-next-line array-callback-return
         {contacts.map((el) => {
           if (filter) {
             if (el.name.toLowerCase().includes(filter)) {

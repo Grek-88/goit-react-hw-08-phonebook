@@ -1,0 +1,21 @@
+.link {
+    text-decoration: none;
+}
+
+.activeLink {
+    color: red;
+}
+
+.wrapper {
+    height: 65px;
+    display: flex;
+}
+
+.list {
+    display: flex;
+}
+
+.item {
+    list-style: none;
+    margin-left: 20px;
+}

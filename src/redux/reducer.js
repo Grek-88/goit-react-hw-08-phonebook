@@ -1,7 +1,12 @@
 import { combineReducers } from "redux";
 import { findContact } from "./actions";
 import { createReducer } from "@reduxjs/toolkit";
-import { addContact, fetchContact, deleteContact } from "./actionOperation";
+import {
+  addContact,
+  fetchContact,
+  deleteContact,
+  signupUser,
+} from "./actionOperation";
 
 export const itemReducer = createReducer([], {
   [fetchContact.fulfilled]: (_, { payload }) => payload,
@@ -42,4 +47,8 @@ const reducerContacts = combineReducers({
   error: errorReducer,
 });
 
-export default reducerContacts;
+const reducerUser = createReducer(null, {
+  [signupUser.fulfilled]: (_, { payload }) => payload,
+});
+
+export { reducerContacts, reducerUser };

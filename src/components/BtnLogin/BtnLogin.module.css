@@ -1,0 +1,26 @@
+.button {
+    width: 233px;
+    /* background-color: white; */
+    background: transparent;
+    color: #fff;
+    border: 2px solid #e7e7e7;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 20px 2px;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background: rgba(112, 112, 112, 0.3);
+}
+
+.button:hover {
+    background-color: #e7e7e7;
+    color: rgb(129, 129, 129);
+}

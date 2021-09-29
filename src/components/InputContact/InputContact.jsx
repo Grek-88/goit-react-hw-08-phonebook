@@ -2,10 +2,12 @@ import s from "../InputContact/InputContact.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addContact } from "../../redux/actionOperation";
 import { getContacts } from "../../redux/contacts-selectors";
+import { getUser } from "../../redux/user-selectors";
 
 export default function InputContact(props) {
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
+  const user = useSelector(getUser);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,7 +31,7 @@ export default function InputContact(props) {
   return (
     <>
       <form className={s.form} onSubmit={handleSubmit}>
-        {false && <div className={s.blur}></div>}
+        {!user?.user && <div className={s.blur}></div>}
         <label className={s.label}>
           Name
           <input

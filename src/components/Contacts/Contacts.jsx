@@ -4,7 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { findContact } from "../../redux/actions";
 import FindContact from "../FindContact/FindContact";
 import s from "../Contacts/Contacts.module.css";
-import { deleteContact } from "../../redux/actionOperation";
+import { useEffect } from "react";
+import { deleteContact, fetchContact } from "../../redux/actionOperation";
 import { getContacts, getFilter } from "../../redux/contacts-selectors";
 
 export default function Contacts() {
@@ -12,23 +13,26 @@ export default function Contacts() {
   const filter = useSelector(getFilter);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(fetchContact());
+  }, [dispatch]);
+
+  const handleFindContact = (dataFilterContact) => {
+    dispatch(findContact(dataFilterContact));
+  };
+
   return (
     <>
-      <FindContact
-        onChange={(dataFilterContact) =>
-          dispatch(findContact(dataFilterContact))
-        }
-      />
+      <FindContact onChange={handleFindContact} />
 
-      <ul>
-        // eslint-disable-next-line array-callback-return //
-        eslint-disable-next-line array-callback-return
+      <ul className={s.list}>
         {contacts.map((el) => {
           if (filter) {
             if (el.name.toLowerCase().includes(filter)) {
               return (
-                <li key={el.id} className={s.li}>
-                  {el.name} {el.number}
+                <li key={el.id} className={s.item}>
+                  <span>{el.name}</span>
+                  <span>{el.number}</span>
                   <button
                     className={s.button}
                     onClick={() => dispatch(deleteContact(el.id))}
@@ -40,8 +44,9 @@ export default function Contacts() {
             }
           } else {
             return (
-              <li key={el.id} className={s.li}>
-                {el.name} {el.number}
+              <li key={el.id} className={s.item}>
+                <span>{el.name}</span>
+                <span>{el.number}</span>
                 <button
                   className={s.button}
                   onClick={() => dispatch(deleteContact(el.id))}

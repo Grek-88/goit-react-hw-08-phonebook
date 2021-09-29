@@ -6,6 +6,9 @@ import {
   fetchContact,
   deleteContact,
   signupUser,
+  loginUser,
+  logoutUser,
+  fetchCurrentUser,
 } from "./actionOperation";
 
 export const itemReducer = createReducer([], {
@@ -49,6 +52,19 @@ const reducerContacts = combineReducers({
 
 const reducerUser = createReducer(null, {
   [signupUser.fulfilled]: (_, { payload }) => payload,
+  [loginUser.fulfilled]: (_, { payload }) => payload,
+  [logoutUser.fulfilled]: () => null,
+  [fetchCurrentUser.fulfilled]: (state, { payload }) => ({
+    ...state,
+    user: payload,
+  }),
+  [fetchCurrentUser.rejected]: () => null,
 });
 
-export { reducerContacts, reducerUser };
+const reducerIsRefresh = createReducer(false, {
+  [fetchCurrentUser.pending]: () => true,
+  [fetchCurrentUser.fulfilled]: () => false,
+  [fetchCurrentUser.rejected]: () => false,
+});
+
+export { reducerContacts, reducerUser, reducerIsRefresh };

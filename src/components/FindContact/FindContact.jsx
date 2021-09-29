@@ -6,9 +6,11 @@ export default function FindContact(props) {
   };
 
   return (
-    <label className={s.label}>
-      Find contacts by name
-      <input className={s.input} onChange={findInputChange} />
-    </label>
+    <div className={s.wrapper}>
+      <label className={s.label}>
+        Find contacts by name
+        <input className={s.input} onChange={findInputChange} />
+      </label>
+    </div>
   );
 }

@@ -1,59 +1,55 @@
 import "./App.css";
 
-import Section from "../Section/Section";
 import InputContact from "../InputContact/InputContact";
 import Contacts from "../Contacts/Contacts";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchContact } from "../../redux/actionOperation";
-import {
-  getContacts,
-  getIsLoading,
-  getError,
-} from "../../redux/contacts-selectors";
-import { Route, Switch } from "react-router";
+import { fetchCurrentUser } from "../../redux/actionOperation";
+import { Switch, Redirect } from "react-router";
 import Navigation from "../Navigation/Navigation";
 import BtnLogin from "../BtnLogin/BtnLogin";
 import Authorization from "../../Authorization/Authorization";
 import Registration from "../../Authorization/Registration/Registration";
+import PrivateRoute from "../../User/PrivateRoute";
+import PablicRoute from "../../User/PablicRoute";
+import { getIsRefresh } from "../../redux/user-selectors";
+import Footer from "../Footer/Footer";
 
 export default function App() {
-  const contacts = useSelector(getContacts);
-  const isLoading = useSelector(getIsLoading);
-  const error = useSelector(getError);
   const dispatch = useDispatch();
+  const isRefreshing = useSelector(getIsRefresh);
 
-  // useEffect(() => {
-  //   dispatch(fetchContact());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
 
-  return (
+  return isRefreshing ? (
+    <h1>Загружаем...</h1>
+  ) : (
     <div className="App">
       <Navigation />
       <Switch>
-        <Route exact path="/">
+        <PablicRoute exact path="/">
           <InputContact />
           <BtnLogin />
-        </Route>
-        <Route path="/login">
+        </PablicRoute>
+
+        <PablicRoute path="/login" restricted>
           <Authorization />
-        </Route>
-        <Route path="/register">
+        </PablicRoute>
+
+        <PablicRoute path="/register" restricted>
           <Registration />
-        </Route>
-        {/* <Section title="Phonebook">
-        <InputContact />
-      </Section>
-      {isLoading && <h1>Загружаем...</h1>}
-      {error && (
-        <h1 style={{ color: "red" }}>Произошла ошибка, попробуйте снова...</h1>
-        )}
-      {contacts?.length > 0 && (
-        <Section title="Contacts">
+        </PablicRoute>
+
+        <PrivateRoute path="/contacts">
+          <InputContact />
           <Contacts />
-        </Section>
-        )} */}
+        </PrivateRoute>
+
+        <Redirect to="/" />
       </Switch>
+      <Footer />
     </div>
   );
 }

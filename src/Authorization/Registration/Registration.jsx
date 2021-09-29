@@ -21,6 +21,7 @@ export default function Registration() {
   return (
     <>
       <AuthNav />
+
       <form className={s.form} onSubmit={onSignUser}>
         <label className={s.label}>
           Name
@@ -43,9 +44,9 @@ export default function Registration() {
             className={s.input}
             type="text"
             name="password"
-            minlength="7"
+            minLength="7"
             title="Пароль должен быть не менее 7 символов"
-            autocomplete="off"
+            autoComplete="off"
             required
           />
         </label>

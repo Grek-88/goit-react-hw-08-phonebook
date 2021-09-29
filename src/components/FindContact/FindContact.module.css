@@ -1,20 +1,37 @@
 .label {
-    margin-left: 20px;
-    width: 75%;
+    text-align: center;
+
     display: flex;
     flex-direction: column;
     font-weight: bold;
     margin-bottom: 10px;
+    color: #ffffff;
 }
 
 .input {
-    width: 233px;
+    width: 350px;
     margin-top: 5px;
     margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 5px;
-    border: 2px solid #e7e7e7;
+    border: 2px solid #ffffff;
+    background: transparent;
+    color: white;
+    font-weight: bold;
 }
 
 .input:focus {
     box-shadow: 0px 0px 4px 2px rgb(8, 108, 155);
+}
+
+.wrapper {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    border: 2px solid #e7e7e7;
+    padding: 5px;
+    border-radius: 5px;
+    background: rgba(112, 112, 112, 0.3);
 }

@@ -9,7 +9,6 @@
     display: block;
     font-size: 16px;
     font-weight: bold;
-    margin-top: 120px;
     margin-left: auto;
     margin-right: auto;
     -webkit-transition-duration: 0.4s; /* Safari */
@@ -41,35 +40,14 @@
     margin: 0;
     text-transform: uppercase;
     letter-spacing: 0.5em;
-    display: inline-block;
-    border: 4px double rgba(255, 255, 255, 0.25);
-    border-width: 4px 0;
+    display: block;
     padding: 1.5em 0em;
-    position: absolute;
-    top: 18%;
-    left: 100%;
     width: 500px;
-    margin: 0 0 0 -20em;
-    margin-top: 200px;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-@media screen and (min-width: 380px) {
-    .wrapper {
-        left: 75%;
-    }
-}
-@media screen and (min-width: 500px) {
-    .wrapper {
-        top: 13%;
-        left: 60%;
-    }
-}
-@media screen and (min-width: 768px) {
-    .wrapper {
-        top: 18%;
-        left: 55%;
-    }
-}
 .title {
     font: 700 4em/1 'Oswald', sans-serif;
     font-size: 1.5em;

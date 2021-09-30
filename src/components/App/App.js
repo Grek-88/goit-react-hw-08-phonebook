@@ -27,8 +27,8 @@ export default function App() {
 
   const Msg = () => (
     <div>
-      Произошла ошибка, попробуйте снова... <br />
-      <br /> Возможно не правильный Login или divassword
+      Error, please try again... <br />
+      <br /> May be incorrect Login or Password...
     </div>
   );
 

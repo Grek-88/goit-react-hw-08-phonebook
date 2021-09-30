@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getUser } from "../../redux/user-selectors";
-import Auth from "../../User/User";
+import Auth from "../User/User";
 import s from "../Navigation/Navigation.module.css";
 
 export default function Navigation() {

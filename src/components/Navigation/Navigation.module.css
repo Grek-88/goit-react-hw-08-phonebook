@@ -1,11 +1,11 @@
 .link {
     text-decoration: none;
     font-weight: bold;
-    color: black;
+    color: var(--second-color-text);
 }
 
 .activeLink {
-    color: red;
+    color: var(--color-accent);
 }
 
 .wrapper {

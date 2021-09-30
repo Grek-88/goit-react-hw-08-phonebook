@@ -13,8 +13,8 @@
 
 .btn {
     width: 50%;
-    color: #fff;
-    border: 2px solid #e7e7e7;
+    color: var(--main-color-text);
+    border: 2px solid var(--border-color);
     border-radius: 5px;
     padding: 5px;
     text-align: center;
@@ -27,10 +27,10 @@
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
-    background: rgba(112, 112, 112, 0.3);
+    background: var(--main-bg-color);
 }
 
 .btn:hover {
-    background-color: #e7e7e7;
-    color: rgb(90, 89, 89);
+    background-color: var(--border-color);
+    color: var(--color-accent);
 }

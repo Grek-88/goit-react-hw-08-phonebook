@@ -1,9 +1,7 @@
 .button {
     width: 233px;
-    /* background-color: white; */
-    background: transparent;
-    color: #fff;
-    border: 2px solid #e7e7e7;
+    color: var(--color-accent);
+    border: 2px solid var(--border-color);
     border-radius: 5px;
     padding: 5px;
     text-align: center;
@@ -11,16 +9,111 @@
     display: block;
     font-size: 16px;
     font-weight: bold;
-    margin-top: 60px;
+    margin-top: 120px;
     margin-left: auto;
     margin-right: auto;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
-    background: rgba(112, 112, 112, 0.3);
+    background: var(--main-bg-color);
 }
 
 .button:hover {
-    background-color: #e7e7e7;
-    color: rgb(129, 129, 129);
+    background-color: var(--border-color);
+    color: var(--color-hover);
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Neuton';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/neuton/v13/UMBTrPtMoH62xUZCwYg6Qis.woff2)
+        format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+        U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+.wrapper {
+    font: 400 1em/1.5 'Neuton';
+    color: rgba(255, 255, 255, 0.25);
+    text-align: center;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    display: inline-block;
+    border: 4px double rgba(255, 255, 255, 0.25);
+    border-width: 4px 0;
+    padding: 1.5em 0em;
+    position: absolute;
+    top: 18%;
+    left: 100%;
+    width: 500px;
+    margin: 0 0 0 -20em;
+    margin-top: 200px;
+}
+
+@media screen and (min-width: 380px) {
+    .wrapper {
+        left: 75%;
+    }
+}
+@media screen and (min-width: 500px) {
+    .wrapper {
+        top: 13%;
+        left: 60%;
+    }
+}
+@media screen and (min-width: 768px) {
+    .wrapper {
+        top: 18%;
+        left: 55%;
+    }
+}
+.title {
+    font: 700 4em/1 'Oswald', sans-serif;
+    font-size: 1.5em;
+    letter-spacing: 0;
+    padding: 0.25em 0 0.325em;
+    display: block;
+    margin: 0 auto;
+    text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
+
+    /* Clip Background Image */
+
+    background: url('../../imgs/animated-text-fill2.png') repeat-y;
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    /* Animate Background Image */
+
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: aitf 80s linear infinite;
+    animation: aitf 80s linear infinite;
+
+    /* Activate hardware acceleration for smoother animations */
+
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* Animate Background Image */
+
+@-webkit-keyframes aitf {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+@keyframes aitf {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
 }

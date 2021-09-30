@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import s from "../User/User.module.css";
-import { getUser } from "../redux/user-selectors";
-import { logoutUser } from "../redux/actionOperation";
+import { getUser } from "../../redux/user-selectors";
+import { logoutUser } from "../../redux/actionOperation";
 
 export default function User() {
   const user = useSelector(getUser);

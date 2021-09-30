@@ -67,4 +67,19 @@ const reducerIsRefresh = createReducer(false, {
   [fetchCurrentUser.rejected]: () => false,
 });
 
-export { reducerContacts, reducerUser, reducerIsRefresh };
+const reducerError = createReducer(false, {
+  [fetchCurrentUser.rejected]: () => false,
+  [fetchCurrentUser.pending]: () => false,
+  [fetchCurrentUser.fulfilled]: () => false,
+  [signupUser.rejected]: () => true,
+  [signupUser.pending]: () => false,
+  [signupUser.fulfilled]: () => false,
+  [loginUser.rejected]: () => true,
+  [loginUser.pending]: () => false,
+  [loginUser.fulfilled]: () => false,
+  [logoutUser.rejected]: () => true,
+  [logoutUser.pending]: () => false,
+  [logoutUser.fulfilled]: () => false,
+});
+
+export { reducerContacts, reducerUser, reducerIsRefresh, reducerError };

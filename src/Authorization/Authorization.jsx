@@ -2,17 +2,9 @@ import { useDispatch } from "react-redux";
 import { loginUser } from "../redux/actionOperation";
 import s from "../Authorization/Authorization.module.css";
 import AuthNav from "./AuthNav/AuthNav";
-// import { getUser } from "../redux/user-selectors";
-// import { useHistory } from "react-router";
 
 export default function Authorization() {
   const dispatch = useDispatch();
-  // const user = useSelector(getUser);
-  // const history = useHistory();
-
-  // if (user.user) {
-  //   history.push("/contacts");
-  // }
 
   const onLoginUser = (e) => {
     e.preventDefault();

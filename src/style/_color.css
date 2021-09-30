@@ -1,0 +1,14 @@
+:root {
+    --main-color-text: #fff;
+    --second-color-text: #000;
+    --color-accent: red;
+    --border-color: #e7e7e7;
+    --main-bg-color: rgba(112, 112, 112, 0.3);
+    --color-hover: rgb(129, 129, 129);
+    --blur-color: rgba(209, 209, 209, 0.95);
+
+    --clear-color: #fff;
+    --bg-color: #f0f1f3;
+    --inactive-color: #808080;
+    --small-color: #4c527d;
+}

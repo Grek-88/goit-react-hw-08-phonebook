@@ -1,4 +1,9 @@
-import { reducerContacts, reducerUser, reducerIsRefresh } from "./reducer";
+import {
+  reducerContacts,
+  reducerUser,
+  reducerIsRefresh,
+  reducerError,
+} from "./reducer";
 import { configureStore } from "@reduxjs/toolkit";
 import {
   persistStore,
@@ -23,6 +28,7 @@ const store = configureStore({
     contacts: reducerContacts,
     user: persistReducer(userPersistConfig, reducerUser),
     isRefreshing: reducerIsRefresh,
+    error: reducerError,
   },
   devTools: process.env.NODE_ENV === "development",
   middleware: (getDefaultMiddleware) =>

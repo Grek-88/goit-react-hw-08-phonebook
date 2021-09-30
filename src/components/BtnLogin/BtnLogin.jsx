@@ -15,8 +15,15 @@ export default function BtnLogin() {
     history.push("/login");
   };
   return (
-    <button className={s.button} type="submit" onClick={onLogin}>
-      Login / Sign up
-    </button>
+    <>
+      <p className={s.wrapper}>
+        <span className={s.title}>
+          Fast, Secure and Friendly React Application.
+        </span>
+      </p>
+      <button className={s.button} type="submit" onClick={onLogin}>
+        Log in / Sign up
+      </button>
+    </>
   );
 }

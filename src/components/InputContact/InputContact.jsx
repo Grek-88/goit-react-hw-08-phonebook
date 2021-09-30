@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addContact } from "../../redux/actionOperation";
 import { getContacts } from "../../redux/contacts-selectors";
 import { getUser } from "../../redux/user-selectors";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function InputContact(props) {
   const contacts = useSelector(getContacts);
@@ -17,7 +19,7 @@ export default function InputContact(props) {
         (el) => el.name.toLowerCase() === e.target.name.value.toLowerCase()
       )
     ) {
-      alert(`"${e.target.name.value}" is already in contacts.`);
+      toast.error(`"${e.target.name.value}" is already in contacts.`);
     } else {
       dispatch(
         addContact({ name: e.target.name.value, number: e.target.number.value })

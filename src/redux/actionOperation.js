@@ -47,7 +47,6 @@ export const signupUser = createAsyncThunk(
       token.set(user.data.token);
       return user.data;
     } catch (error) {
-      console.log(111);
       return rejectWithValue(error);
     }
   }
@@ -61,7 +60,6 @@ export const loginUser = createAsyncThunk(
       token.set(user.data.token);
       return user.data;
     } catch (error) {
-      console.log(222);
       return rejectWithValue(error);
     }
   }
@@ -74,7 +72,6 @@ export const logoutUser = createAsyncThunk(
       await axios.post("/users/logout");
       token.unset();
     } catch (error) {
-      console.log(333);
       return rejectWithValue(error);
     }
   }
@@ -95,9 +92,7 @@ export const fetchCurrentUser = createAsyncThunk(
       const user = await axios.get("/users/current");
       return user.data;
     } catch (error) {
-      console.log(444);
       return thunkAPI.rejectWithValue(error);
-      // return;
     }
   }
 );
@@ -117,9 +112,7 @@ export const fetchContact = createAsyncThunk(
       const user = await axios.get("/contacts");
       return user.data;
     } catch (error) {
-      console.log(444);
       return thunkAPI.rejectWithValue(error);
-      // return;
     }
   }
 );

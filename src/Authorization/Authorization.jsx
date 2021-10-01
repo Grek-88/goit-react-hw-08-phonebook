@@ -33,7 +33,7 @@ export default function Authorization() {
           Password
           <input
             className={s.input}
-            type="text"
+            type="password"
             name="password"
             minLength="7"
             title="Пароль должен быть не менее 7 символов"
